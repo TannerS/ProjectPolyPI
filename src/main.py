@@ -4,9 +4,18 @@ import sys
 import struct
 import numpy as np
 import json
+#import RPi.GPIO as GPIO
+#import time # used for time.sleep()
 
+#GPIO.setmode(GPIO.BCM)
 HOST = ''
-PORT = 8119
+PORT = 8120
+
+pins = [14,15,18,23,24,25,8,7]
+
+for y in range(len(pins)):
+    GPIO.setup(pins[y], GPIO.OUT)
+    print("setting pin: " + pins[y])
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print ('Socket created')
@@ -65,7 +74,5 @@ s.close()
 
 
 
-
-
-
-
+def sendDataToGpio():
+    print("hi")
