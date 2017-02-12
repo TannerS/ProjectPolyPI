@@ -6,7 +6,7 @@ import numpy as np
 import json
 
 HOST = ''
-PORT = 8119
+PORT = 8120
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print ('Socket created')
