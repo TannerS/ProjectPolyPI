@@ -4,17 +4,16 @@ import struct
 import numpy as np
 import json
 
-#import RPi.GPIO as GPIO
-#import time # used for time.sleep()
+import RPi.GPIO as GPIO
+import time # used for time.sleep()
 
-#GPIO.setmode(GPIO.BCM)
-from src.Matrix import Matrix
+GPIO.setmode(GPIO.BCM)
+from Matrix import Matrix
 
 HOST = ''
 
-PORT = 8128
+PORT = 8155
 
-pins = [14,15,18,23,24,25,8,7]
 
 # for y in range(len(pins)):
     # GPIO.setup(pins[y], GPIO.OUT)
@@ -66,6 +65,3 @@ conn.close()
 s.close()
 
 
-
-def sendDataToGpio():
-    print("hi")
