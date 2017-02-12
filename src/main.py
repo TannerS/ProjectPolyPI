@@ -6,7 +6,7 @@ import numpy as np
 import json
 
 HOST = ''
-PORT = 8106
+PORT = 8119
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print ('Socket created')
@@ -20,7 +20,7 @@ except socket.error as msg:
 print ('Socket bind complete')
 
 
-s.listen(10)
+s.listen(1)
 
 
 print ('Socket now listening')
@@ -34,30 +34,35 @@ json_str = ""
 
 
 
-
-
 while True:
     # Receiving from client
     print("get data")
-    data = conn.recv(1024)
+
+
+
+    data = conn.recv(1026)
     temp =  data.decode()
+    # print("TEST: " + temp)
     # json_str += data.decode()
     json_str += temp
-    print(json_str)
+    # print(json_str)
+
+    json_str = json_str.strip('\n')
+
+    json_arr = np.array(json.loads(json_str))
+
+    print(str(json_arr))
+
+    json_str = ""
+
     if not data:
         break
 
 
-print("DEBUG: " + str(json_str))
 
 conn.close()
 s.close()
 
-json_str = json_str.strip('\n')
-
-json_arr = np.array(json.loads(json_str))
-
-print("DEBUG: " + str(json_arr))
 
 
 
