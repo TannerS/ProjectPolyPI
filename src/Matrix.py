@@ -31,20 +31,22 @@ class Matrix(threading.Thread):
                 print(" ")
                 for y in range(self.h):
                     if (self.matrix[x][y] == 1) and (GPIO.input(self.pins[y]) == False):
-                        #time.sleep(.15)
+                        time.sleep(.15)
                         GPIO.output(self.pins[y], True)
 
 
-                        while GPIO.input(self.pins[y]) == True:
-                            print("wait")
+                        #while GPIO.input(self.pins[y]) == True:
+                            #print("wait")
                             
+
+                        
                         #time.sleep(.15)
                     elif (self.matrix[x][y] == 0) and (GPIO.input(self.pins[y]) == True):
-                        #time.sleep(.15)
+                        time.sleep(.15)
                         GPIO.output(self.pins[y], False)
-                        while GPIO.input(self.pins[y]) == False:
-                            print("wait")
-                    #print(self.matrix[x][y], end="")
+                        #while GPIO.input(self.pins[y]) == False:
+                            #print("wait")
+                    print(self.matrix[x][y], end="")
         
 
     def setData(self, data):

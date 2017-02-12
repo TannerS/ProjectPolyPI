@@ -12,7 +12,7 @@ from Matrix import Matrix
 
 HOST = ''
 
-PORT = 8155
+PORT = 8173
 
 
 # for y in range(len(pins)):
